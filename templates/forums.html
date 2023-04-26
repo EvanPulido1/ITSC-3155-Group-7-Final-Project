@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Home</title>
+  <title>Forums</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Team 7 Company</a>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Team 7 Company</a>
+      </div>
+      <ul class="nav navbar-nav">
+          <li><a href="http://127.0.0.1:5000">Home</a></li>
+          <li class="active"><a href="http://127.0.0.1:5000/forums">Forums</a></li>
+          <li><a href="http://127.0.0.1:5000/faq">FAQ</a></li>
+          <li><a href="http://127.0.0.1:5000/contact-us">Contact Us</a></li>
+          <li><a href="http://127.0.0.1:5000/rules">Rules</a></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="http://127.0.0.1:5000">Home</a></li>
-        <li><a href="http://127.0.0.1:5000/forums">Forums</a></li>
-        <li><a href="http://127.0.0.1:5000/faq">FAQ</a></li>
-        <li><a href="http://127.0.0.1:5000/contact-us">Contact Us</a></li>
-        <li><a href="http://127.0.0.1:5000/rules">Rules</a></li>
-    </ul>
+  </nav>
+  <div class="container">
+      <h1>Forums</h1>
+      <br>
+      <h3>How do I start a forum?</h3>
   </div>
-</nav>
-<div class="container">
-    <h1>Forums</h1>
-  </div>
+  <form action="/">
+    <div class="container mt-3">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action">Business</a>
+        <a href="#" class="list-group-item list-group-item-action">Health</a>
+        <a href="#" class="list-group-item list-group-item-action">Social Sciences and History</a>
+        <a href="#" class="list-group-item list-group-item-action">Engineering</a>
+        <a href="#" class="list-group-item list-group-item-action">Biological and Biomedical Sciences</a>
+        <a href="#" class="list-group-item list-group-item-action">Psychology</a>
+        <a href="#" class="list-group-item list-group-item-action">Computer and Information Sciences</a>
+        <a href="#" class="list-group-item list-group-item-action">Visual and Performing Arts</a>
+        <a href="#" class="list-group-item list-group-item-action">Communication and Journalism</a>
+        <a href="#" class="list-group-item list-group-item-action">Education</a>
+      </div>
+      <button type="submit" class="btn btn-primary">New Forum</button>
+    </div>
+  </form>
 </body>
 </html>
