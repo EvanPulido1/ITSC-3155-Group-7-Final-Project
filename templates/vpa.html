@@ -23,7 +23,24 @@
       </ul>
     </div>
   </nav>
+  {%- for message in get_flashed_messages() %}
+    {{ message }}
+  {%- endfor %}
   <div class="container">
     <h1>Visual and Performance Arts Forum</h1>
+    <table class="table">
+      <thead>
+        <th>What experience or tips do you have about visual and performance arts?</th>
+        <th><a href="http://127.0.0.1:5000/vpa-reply-form">Reply</a></th>
+      </thead>
+      <tbody>
+        {% for answer8 in answers8 %}
+          <tr>
+            <td>{{ answer8.answer8 }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 </body>
+</html>
