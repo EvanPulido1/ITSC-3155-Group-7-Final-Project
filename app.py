@@ -91,9 +91,65 @@ def __init__(self, answer10):
 with app.app_context():
     db.create_all()
 
+try:
+    result = db.engine.execute('SELECT 1')
+    print('Database connection successful:', result.fetchone())
+except Exception as e:
+    print('Database connection failed:', e)
+
+class UserInfo(db.Model):
+    tablename = 'user_info'
+    username = db.Column(db.String, primary_key=True)
+    password = db.Column(db.String)
+
 @app.route('/')
-def home():
-    return render_template('home.html')
+def index():
+    return render_template('index.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        # Query the user_info table to check if the provided username and password are valid
+        user = UserInfo.query.filter_by(username=username, password=password).first()
+        if user:
+            # Login successful
+            flash('Login successful')
+            return redirect(url_for('index'))
+        else:
+            # Login failed
+            flash('Invalid username or password', 'error')
+            return redirect(url_for('login'))
+    else:
+        return render_template('login.html')
+    
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        # Check if the provided username already exists in the user_info table
+        user = UserInfo.query.filter_by(username=username).first()
+        if user:
+            # Username already exists
+            flash('Username already taken', 'error')
+            return redirect(url_for('register'))
+        elif password == confirm_password:
+            # Create a new user and add it to the user_info table
+            new_user = UserInfo(username=username, password=password)
+            db.session.add(new_user)
+            db.session.commit()
+            # Registration successful
+            flash('Registration successful')
+            return redirect(url_for('login'))
+        else:
+            # Registration failed
+            flash('Passwords do not match', 'error')
+            return redirect(url_for('register'))
+    else:
+        return render_template('register.html')
 
 @app.route('/forums')
 def forums():
