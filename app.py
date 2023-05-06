@@ -88,19 +88,13 @@ class answers10(db.Model):
 def __init__(self, answer10):
     self.answer10 = answer10
 
-with app.app_context():
-    db.create_all()
-
-try:
-    result = db.engine.execute('SELECT 1')
-    print('Database connection successful:', result.fetchone())
-except Exception as e:
-    print('Database connection failed:', e)
-
 class UserInfo(db.Model):
     tablename = 'user_info'
     username = db.Column(db.String, primary_key=True)
     password = db.Column(db.String)
+
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():
@@ -116,7 +110,7 @@ def login():
         if user:
             # Login successful
             flash('Login successful')
-            return redirect(url_for('index'))
+            return redirect(url_for('forums'))
         else:
             # Login failed
             flash('Invalid username or password', 'error')
