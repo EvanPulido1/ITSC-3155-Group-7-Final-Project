@@ -1,10 +1,10 @@
 # ITSC-3155-Group-7-Final-Project
 
 Team 7 Company:
-Syniah Peterson
-Austin Jackovich
-Evan Pulido
-Brandon Jones
+1. Syniah Peterson
+2. Austin Jackovich
+3. Evan Pulido
+4. Brandon Jones
 
 Main branch:
   1. Meeting docs
